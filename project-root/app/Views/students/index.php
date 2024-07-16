@@ -28,6 +28,7 @@ if (session()->getFlashdata('status')) {
             <th>Phone</th>
             <th>Course</th>
             <th class="text-center">Actions</th>
+            <th class="text-center">Delete-conf</th>
         </tr>
     </thead>
     <tbody>
@@ -65,11 +66,44 @@ if (session()->getFlashdata('status')) {
                     </div>
                     <a href='<?= base_url('students/edit/' . $student['id']) ?>' class="btn btn-success" id='edit-student'>Edit</a>
                 </td>
+
+                <td class="text-center">
+                    <button type="button" id='del-conf' value="<?= $student['id'] ?>" class="btn btn-danger del-conf">Delete conf</button>
+                </td>
+
             </tr>
 
         <?php endforeach; ?>
 
     </tbody>
 </table>
+
+<?= $this->endSection() ?>
+
+<?= $this->section('confirmation') ?>
+
+<script>
+    $('.del-conf').click(function(e) {
+        e.preventDefault();
+        let id = $(this).val();
+        if (confirm("Do you really want to delete this student?")) {
+            $.ajax({
+                url: `<?= base_url('students/delete/') ?>/${id}`,
+                type: 'POST',
+                data: {
+                    _method: 'DELETE',
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                },
+                success: () => {
+                    window.location.reload();
+                    alert('Student Deleted Successfully');
+                },
+                error: () => {
+                    alert('Failed to delete the student.');
+                }
+            });
+        }
+    });
+</script>
 
 <?= $this->endSection() ?>

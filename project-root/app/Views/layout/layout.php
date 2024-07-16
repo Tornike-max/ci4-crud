@@ -18,21 +18,18 @@
     <script src="<?= base_url('assets/js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script>
-        $('#addstudent-btn').click(() => {
-            window.location.href = '<?= base_url('students/create'); ?>';
+        $(document).ready(() => {
+            $('#addstudent-btn').click(() => {
+                window.location.href = '<?= base_url('students/create'); ?>';
+            });
+
+            $('#navigate-to-students-page').click(() => {
+                window.location.href = '<?= base_url('students') ?>'
+            });
         });
-
-        $('#navigate-to-students-page').click(() => {
-            window.location.href = '<?= base_url('students') ?>'
-        });
-
-        const myModal = document.getElementById('myModal')
-        const myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', () => {
-            myInput.focus()
-        })
     </script>
+
+    <?= $this->renderSection('confirmation') ?>
 </body>
 
 </html>
