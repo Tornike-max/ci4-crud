@@ -18,3 +18,5 @@ $routes->post('/students/store', [StudentController::class, 'store']);
 
 $routes->get('/students/edit/(:num)', "StudentController::edit/$1");
 $routes->put('/students/update/(:num)', "StudentController::update/$1");
+
+$routes->delete('/students/delete/(:num)', "StudentController::delete/$1");

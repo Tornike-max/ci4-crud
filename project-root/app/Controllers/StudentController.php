@@ -74,4 +74,12 @@ class StudentController extends BaseController
 
         return redirect()->to('students')->with('status', 'Student Updated Successfully');
     }
+
+    public function delete($id = null)
+    {
+        $model = model(StudentModel::class);
+        $model->delete($id);
+
+        return redirect()->to('students')->with('status', 'Student Deleted Successfully');
+    }
 }
