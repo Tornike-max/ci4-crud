@@ -20,7 +20,7 @@ if (session()->getFlashdata('status')) {
 ?>
 
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered" id='mydatatable'>
     <thead class="thead-dark">
         <tr>
             <th>Name</th>
