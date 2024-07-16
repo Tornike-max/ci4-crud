@@ -1,6 +1,5 @@
-<?= $this->extend('products/index') ?>
-
+<?= $this->extend('layout/layout.php') ?>
 
 <?= $this->section('content') ?>
-<h1>Hello World!</h1>
+hello
 <?= $this->endSection() ?>

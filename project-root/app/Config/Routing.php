@@ -32,6 +32,7 @@ class Routing extends BaseRouting
         APPPATH . 'Config/Routes.php',
     ];
 
+
     /**
      * For Defined Routes and Auto Routing.
      * The default namespace to use for Controllers when no other
