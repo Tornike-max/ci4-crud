@@ -25,6 +25,13 @@
         $('#navigate-to-students-page').click(() => {
             window.location.href = '<?= base_url('students') ?>'
         });
+
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
     </script>
 </body>
 
